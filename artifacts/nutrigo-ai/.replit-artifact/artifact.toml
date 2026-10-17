@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "NutriGo AI"
+description = "A nutrition-label companion that helps shoppers check foods, compare nutrition at a glance, and build a smarter grocery cart. Includes account screens, a label scan flow, and a live connection status for the existing NutriGo backend."
+version = "1.0.0"
+id = "artifacts/nutrigo-ai"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25746
+
+[services.development]
+run = "pnpm --filter @workspace/nutrigo-ai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nutrigo-ai", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/nutrigo-ai/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25746"
+BASE_PATH = "/"

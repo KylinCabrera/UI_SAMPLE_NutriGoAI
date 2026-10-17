@@ -1,0 +1,2 @@
+- [NutriGo API boundary](nutrigo-api-boundary.md) — Use the authenticated same-origin proxy; the Render API blocks browser CORS and trusts email-keyed cart ownership.
+- [Clerk React version alignment](clerk-react-version-alignment.md) — After Clerk dependency changes, confirm resolved React and React DOM versions match.
